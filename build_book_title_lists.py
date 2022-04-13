@@ -60,6 +60,7 @@ def click_next_page(driver):
         pass
     
 def is_last_page(driver):
+    #next page button disabled on last page
     
     try:
         next_button = driver.find_element(By.XPATH,"//span[contains(@class,'next_page disabled')]")
@@ -68,6 +69,7 @@ def is_last_page(driver):
         return False
     
 def insert_random_wait():
+    #avoids getting throttled by website
     random_num = random.random()
     random_sleep = random_num * 10
     time.sleep(random_sleep)
