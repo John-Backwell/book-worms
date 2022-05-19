@@ -40,7 +40,6 @@ def get_max_bookTitle_urls(driver):
     return urls
 
 def parse_urls_for_ID_and_name(urls):
-    #parses urls for relevant book ID and name for building text file to pass to scraper
     
     split_urls = [url.rsplit('/',1) for url in urls]
     ids_and_names = [sublist[-1] for sublist in split_urls]
