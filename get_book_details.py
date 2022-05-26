@@ -150,15 +150,6 @@ def main():
         except HTTPError as e:
             print(e)
             exit(0)
-
-
-    books = condense_books(args.output_directory_path)
-    if args.format == 'json':
-        json.dump(books, open(f"{condensed_books_path}.json", 'w'))
-    elif args.format == 'csv':
-        json.dump(books, open(f"{condensed_books_path}.json", 'w'))
-        book_df = pd.read_json(f"{condensed_books_path}.json")
-        book_df.to_csv(f"{condensed_books_path}.csv", index=False, encoding='utf-8')
         
     print(str(datetime.now()) + ' ' + script_name + f':\n\n🎉 Success! All book metadata scraped. 🎉\n\nMetadata files have been output to /{args.output_directory_path}\nGoodreads scraping run time = ⏰ ' + str(datetime.now() - start_time) + ' ⏰')
 
